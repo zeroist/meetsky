@@ -8,7 +8,6 @@ In the class we will be able to pass pre- & post- conditions to
 import com.meetSky.pages.LoginPage;
 import com.meetSky.utilities.Driver;
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
@@ -18,7 +17,7 @@ public class Hooks {
 
     //import from io.cucumber.java not from junit
 
-    @Before ("@login")
+    // @Before ("@login")
     public void setupScenario() {
         LoginPage loginPage = new LoginPage();
         Driver.getDriver().get("https://qa.meetsky.net/index.php/login");
@@ -46,7 +45,7 @@ public class Hooks {
 
         //scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
 
-
+        Driver.closeDriver();
         if (scenario.isFailed()) {
 
             byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
