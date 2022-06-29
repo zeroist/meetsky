@@ -14,9 +14,9 @@ public class LoginStepDefinition {
         Driver.getDriver().get("https://qa.meetsky.net/index.php/login");
     }
 
-    @When("user enter username {string} , password {string} and clicks login button")
+    @When("user enters username {string} , password {string} and clicks login button")
     public void userEnterUsernamePasswordAndClicksLoginButton(String arg0, String arg1) {
-        loginPage.login();
+        loginPage.login(arg0,arg1);
     }
 
     @Then("user is on dashboard")
@@ -24,6 +24,14 @@ public class LoginStepDefinition {
         String actualTitle = Driver.getDriver().getTitle();
         String expectedTitle="Files - Meetsky - QA";
         Assert.assertEquals(actualTitle,expectedTitle);
+
+    }
+
+    @Then("user see Wrong username or password as a warning")
+    public void userSeeWrongUsernameOrPasswordAsAWarning() {
+        String warningMessage = loginPage.invalidCredentialWarning.getText();
+        Assert.assertEquals(warningMessage,"Wrong username or password.");
+
 
     }
 }

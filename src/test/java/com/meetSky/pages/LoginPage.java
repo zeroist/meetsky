@@ -7,13 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     @FindBy(id = "user")
-    private WebElement usernameBox;
+    public WebElement usernameBox;
 
     @FindBy(id = "password")
-    private WebElement passwordBox;
+    public WebElement passwordBox;
 
     @FindBy(id = "submit-form")
-    private WebElement loginButton;
+    public WebElement loginButton;
+
+    @FindBy(xpath = "//p[@class=\"warning wrongPasswordMsg\"]")
+    public WebElement invalidCredentialWarning;
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
