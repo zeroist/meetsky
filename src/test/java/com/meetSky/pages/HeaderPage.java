@@ -49,6 +49,11 @@ public class HeaderPage {
     @FindBy(xpath = "//div[@id=\"settings\"]")
     public WebElement headerSettings;
 
+    @FindBy(xpath = "//li[@data-id=\"logout\"]")
+    public WebElement logout;
+
+
+
 
 }
 
