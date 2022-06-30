@@ -19,12 +19,8 @@ Feature: Login Feature
       | 123      | safdfqew |
       | sfsty    | gdhf     |
 
-  Scenario Outline: User can not login with any invalid credentials "Please fill out this field" message should be displayed
-  if the password or username is empty
-    Given user is on the login page
-    When user enters username "<userName>" , password "<password>" and clicks login button
-    Then user see Please fill out this field as a warning
-    Examples:
-      | userName   | password    |
-      |            | Employee123 |
-      | Employee91 |             |
+    Scenario: User can not login with any invalid credentials "Please fill out this field" message should be displayed
+    if the password or username is empty
+      Given user is on the login page
+      When user enters username "<userName>" , password "<password>" and clicks login button
+      Then user see Please fill out this field as a warning
