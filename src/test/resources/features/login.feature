@@ -53,4 +53,10 @@ Feature: Login Feature
     And user clicks the Forgot password? link
     Then use can see Reset Password button
 
+  @MTSK-393
+  Scenario: User can see valid placeholders on Username and Password fields
+    Given user is on the login page
+    When user see valid placeholder for UserName field
+    Then user see valid placeholder for Password field
+
 

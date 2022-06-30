@@ -101,4 +101,17 @@ public class LoginStepDefinition {
     public void useCanSeeResetPasswordButton() {
         Assert.assertTrue(loginPage.resetPasswordButton.isDisplayed());
     }
+
+    @When("user see valid placeholder for UserName field")
+    public void userSeeValidPlaceholderForUserNameField() {
+        System.out.println(loginPage.usernameBox.getAttribute("placeholder"));
+        Assert.assertEquals("Username or email", loginPage.usernameBox.getAttribute("placeholder"));
+
+    }
+
+    @Then("user see valid placeholder for Password field")
+    public void userSeeValidPlaceholderForPasswordField() {
+        System.out.println(loginPage.passwordBox.getAttribute("placeholder"));
+        Assert.assertEquals("Password", loginPage.passwordBox.getAttribute("placeholder"));
+    }
 }
