@@ -16,8 +16,17 @@ public class LoginPage {
     @FindBy(id = "submit-form")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//img[@src=\"/core/img/actions/toggle.svg\"]")
+    public WebElement eyeIcon;
+
     @FindBy(xpath = "//p[@class=\"warning wrongPasswordMsg\"]")
     public WebElement invalidCredentialWarning;
+
+    @FindBy(id = "lost-password")
+    public WebElement forgotPasswordLink;
+
+    @FindBy(id="reset-password-submit")
+    public WebElement resetPasswordButton;
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);

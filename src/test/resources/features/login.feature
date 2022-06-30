@@ -19,8 +19,38 @@ Feature: Login Feature
       | 123      | safdfqew |
       | sfsty    | gdhf     |
 
-    Scenario: User can not login with any invalid credentials "Please fill out this field" message should be displayed
-    if the password or username is empty
-      Given user is on the login page
-      When user enters username "<userName>" , password "<password>" and clicks login button
-      Then user see Please fill out this field as a warning
+  @MTSK-389
+  Scenario Outline: User can not login with any invalid credentials "Please fill out this field" message should be displayed
+  if the password or username is empty
+    Given user is on the login page
+    When user enters username "<userName>" , password "<password>" and clicks login button
+    Then user see Please fill out this field as a warning
+    Examples:
+      | userName   | password    |
+      |            | Employee123 |
+      | Employee91 |             |
+
+  @MTSK-390
+  Scenario: User can see the password in a form of dots by default
+
+    Given user is on the login page
+    When user enters password "Employee123"
+    Then user see the password in dots form
+
+  @MTSK-391
+  Scenario: User can see the password explicitly if needed
+    Given user is on the login page
+    When user enters password "Employee123"
+    Then user clicks the eye icon next to password input box
+    Then User can see the password explicitly
+
+  @MTSK-392
+  Scenario: User can see the "Forgot password?" link on the login page and can see the "Reset Password"
+  button on the next page after clicking on forget password link
+
+    Given user is on the login page
+    When User can see the Forgot password?
+    And user clicks the Forgot password? link
+    Then use can see Reset Password button
+
+
