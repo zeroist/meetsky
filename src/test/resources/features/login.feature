@@ -59,4 +59,18 @@ Feature: Login Feature
     When user see valid placeholder for UserName field
     Then user see valid placeholder for Password field
 
+  @MTSK-397
+  Scenario Outline: Username should be case sensitive
+    Given user is on the login page
+    When user enters username "<userName>" , password "<password>" and clicks login button
+    Then user should not be able open dashboard
+    Examples:
+      | userName   | password    |
+      | Employee91 | Employee123 |
+      | eMployee80 | Employee123 |
+      | EmpLOyee81 | Employee123 |
+      | EmployEE82 | Employee123 |
+      | EMploYEE90 | Employee123 |
+
+
 
