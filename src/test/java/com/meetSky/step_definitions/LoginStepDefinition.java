@@ -115,8 +115,8 @@ public class LoginStepDefinition {
         Assert.assertEquals("Password", loginPage.passwordBox.getAttribute("placeholder"));
     }
 
-    @Then("user should not be able open dashboard")
+    @Then("user should  be able open dashboard")
     public void userShouldNotBeAbleOpenDashboard() {
-        Assert.assertFalse(Driver.getDriver().getCurrentUrl().contains("https://qa.meetsky.net/index.php/apps"));
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("https://qa.meetsky.net/index.php/apps"));
     }
 }
