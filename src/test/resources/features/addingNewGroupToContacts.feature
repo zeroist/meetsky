@@ -12,6 +12,8 @@ Feature: user can create a new group under Contacts Module
     When user see Contacts Page
 
   Scenario Outline: user can create "<New Group Name>" under Contacts Module
+    Given user click Contacts icon
+    When user see Contacts Page
     And user click +New group
     And user see popup box
     And user type group name as "<New Group Name>";
