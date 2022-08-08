@@ -10,6 +10,11 @@ public class LoginPage {
     @FindBy(id = "user")
     public WebElement usernameBox;
 
+    @FindBy(xpath = "//a[@href=\"/index.php/apps/files/\"]")
+    public WebElement filePage;
+
+
+
     @FindBy(id = "password")
     public WebElement passwordBox;
 

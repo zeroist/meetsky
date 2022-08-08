@@ -2,7 +2,6 @@ package com.meetSky.pages;
 
 import com.meetSky.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -25,7 +24,7 @@ public class ContactPage {
     @FindBy(xpath = "//span[@title=\"Not grouped\"]")
     public WebElement leftNotGroupedButton;
 
-    @FindBy(xpath = "//span[@title=\"+ New group\"]")
+    @FindBy(xpath = "//button[@class=\"icon vue-button action-item__menutoggle icon-add\"]")
     public WebElement leftNewGroupButton;
 
     @FindBy(xpath = "//input[@class=\"action-input__input focusable\"]")

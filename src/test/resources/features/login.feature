@@ -5,7 +5,9 @@ Feature: Login Feature
   Scenario: User can Login Dashboard With Valid Credentials
     Given user is on the login page
     When user enters username "Employee91" , password "Employee123" and clicks login button
+    Then user clicks file button
     Then user is on dashboard
+
 
   @MTSK-380
   Scenario Outline: User can not login with any invalid credentials-

@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginStepDefinition {
     LoginPage loginPage = new LoginPage();
-    WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     String userName, password;
 
@@ -28,6 +28,8 @@ public class LoginStepDefinition {
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "https://qa.meetsky.net/index.php/apps";
         Assert.assertTrue(actualUrl.contains(expectedUrl));
+        Driver.getDriver().get("https://qa.meetsky.net/index.php/settings/user");
+
 
     }
 
@@ -47,16 +49,16 @@ public class LoginStepDefinition {
     @Then("user see Please fill out this field as a warning")
     public void userSeePleaseFillOutThisFieldAsAWarning() {
         if (userName.equals("")) {
-            wait.until(ExpectedConditions.attributeContains(loginPage.usernameBox,"validationMessage","Please fill out this field."));
+            wait.until(ExpectedConditions.attributeContains(loginPage.usernameBox, "validationMessage", "Please fill out this field."));
             String validationMessage = loginPage.usernameBox.getAttribute("validationMessage");
-            Assert.assertEquals(validationMessage,"Please fill out this field.");
-            System.out.println(123+validationMessage);
+            Assert.assertEquals(validationMessage, "Please fill out this field.");
+            System.out.println(123 + validationMessage);
         }
         if (password.equals("")) {
-            wait.until(ExpectedConditions.attributeContains(loginPage.passwordBox,"validationMessage","Please fill out this field."));
+            wait.until(ExpectedConditions.attributeContains(loginPage.passwordBox, "validationMessage", "Please fill out this field."));
             String validationMessage = loginPage.passwordBox.getAttribute("validationMessage");
-            System.out.println(456+validationMessage);
-            Assert.assertEquals(validationMessage,"Please fill out this field.");
+            System.out.println(456 + validationMessage);
+            Assert.assertEquals(validationMessage, "Please fill out this field.");
 
         }
     }
@@ -72,7 +74,7 @@ public class LoginStepDefinition {
     public void userSeeThePasswordInDotsForm() {
         String passwordType = loginPage.passwordBox.getAttribute("type");
         System.out.println("passwordType = " + passwordType);
-        Assert.assertEquals(passwordType,"password");
+        Assert.assertEquals(passwordType, "password");
     }
 
     @Then("user clicks the eye icon next to password input box")
@@ -84,7 +86,7 @@ public class LoginStepDefinition {
     public void userCanSeeThePasswordExplicitly() {
         String passwordType = loginPage.passwordBox.getAttribute("type");
         System.out.println("passwordType = " + passwordType);
-        Assert.assertEquals(passwordType,"text");
+        Assert.assertEquals(passwordType, "text");
     }
 
     @When("User can see the Forgot password?")
@@ -118,5 +120,12 @@ public class LoginStepDefinition {
     @Then("user should  be able open dashboard")
     public void userShouldNotBeAbleOpenDashboard() {
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("https://qa.meetsky.net/index.php/apps"));
+    }
+
+    @Then("user clicks file button")
+    public void userClicksFileButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(loginPage.filePage));
+        loginPage.filePage.click();
+
     }
 }
