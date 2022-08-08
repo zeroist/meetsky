@@ -1,4 +1,4 @@
-@wip
+@smoke
 Feature: user can create a new group under Contacts Module
 
 
